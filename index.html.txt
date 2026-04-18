@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGen Digital Seva Kendra</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>NextGen Digital Seva Kendra</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Help</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Your One Stop Digital Service Center</h2>
+    <button onclick="scrollToServices()">Apply Now</button>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+        <div onclick="openForm('PAN Card')">PAN Card</div>
+        <div onclick="openForm('Aadhaar Card')">Aadhaar Card</div>
+        <div onclick="openForm('Income Certificate')">Income Certificate</div>
+        <div onclick="openForm('Caste Certificate')">Caste Certificate</div>
+        <div onclick="openForm('Passport')">Passport</div>
+        <div onclick="openForm('Bill Payment')">Bill Payment</div>
+        <div onclick="openForm('PM Kisan')">PM Kisan</div>
+        <div onclick="openForm('AEPS')">AEPS</div>
+    </div>
+</section>
+
+<!-- FORM -->
+<div id="popup">
+    <div class="form-box">
+        <span onclick="closeForm()">✖</span>
+        <h3 id="title"></h3>
+
+        <form id="serviceForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="text" id="aadhaar" placeholder="Aadhaar Number">
+            <input type="text" id="pan" placeholder="PAN Number">
+            <input type="date" id="dob" required>
+            <input type="text" id="father" placeholder="Father Name">
+            <input type="text" id="mother" placeholder="Mother Name">
+            <input type="tel" id="mobile" placeholder="Mobile Number" required>
+            <textarea id="address" placeholder="Address"></textarea>
+
+            <button type="submit">Submit & Send WhatsApp</button>
+        </form>
+    </div>
+</div>
+
+<section id="contact">
+    <h2>Help & Support</h2>
+    <p>📞 9149383541</p>
+    <p>📧 rihangour258036@gmail.com</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
