@@ -2,68 +2,98 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NextGen Digital Seva Kendra</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+header {
+    background: linear-gradient(135deg, #0d6efd, #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.btn {
+    background: white;
+    color: #0d6efd;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    background: #0d6efd;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
     <h1>NextGen Digital Seva Kendra</h1>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Help</a>
-    </nav>
+    <p>Your One Stop Digital Service Center</p>
+    <button class="btn">Apply Now</button>
 </header>
 
-<section class="hero">
-    <h2>Your One Stop Digital Service Center</h2>
-    <button onclick="scrollToServices()">Apply Now</button>
-</section>
-
-<section id="services">
+<section>
     <h2>Our Services</h2>
-    <div class="grid">
-        <div onclick="openForm('PAN Card')">PAN Card</div>
-        <div onclick="openForm('Aadhaar Card')">Aadhaar Card</div>
-        <div onclick="openForm('Income Certificate')">Income Certificate</div>
-        <div onclick="openForm('Caste Certificate')">Caste Certificate</div>
-        <div onclick="openForm('Passport')">Passport</div>
-        <div onclick="openForm('Bill Payment')">Bill Payment</div>
-        <div onclick="openForm('PM Kisan')">PM Kisan</div>
-        <div onclick="openForm('AEPS')">AEPS</div>
+
+    <div class="services">
+        <div class="card">PAN Card</div>
+        <div class="card">Aadhaar Card</div>
+        <div class="card">Income Certificate</div>
+        <div class="card">Caste Certificate</div>
+        <div class="card">Passport</div>
+        <div class="card">Bill Payment</div>
+        <div class="card">PM Kisan</div>
     </div>
 </section>
 
-<!-- FORM -->
-<div id="popup">
-    <div class="form-box">
-        <span onclick="closeForm()">✖</span>
-        <h3 id="title"></h3>
-
-        <form id="serviceForm">
-            <input type="text" id="name" placeholder="Full Name" required>
-            <input type="text" id="aadhaar" placeholder="Aadhaar Number">
-            <input type="text" id="pan" placeholder="PAN Number">
-            <input type="date" id="dob" required>
-            <input type="text" id="father" placeholder="Father Name">
-            <input type="text" id="mother" placeholder="Mother Name">
-            <input type="tel" id="mobile" placeholder="Mobile Number" required>
-            <textarea id="address" placeholder="Address"></textarea>
-
-            <button type="submit">Submit & Send WhatsApp</button>
-        </form>
-    </div>
-</div>
-
-<section id="contact">
-    <h2>Help & Support</h2>
+<footer>
     <p>📞 9149383541</p>
     <p>📧 rihangour258036@gmail.com</p>
-</section>
+</footer>
 
-<script src="script.js"></script>
 </body>
 </html>
