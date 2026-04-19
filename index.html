@@ -3,75 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextGen Digital Seva Kendra</title>
+<title>Dashboard - NextGen Seva</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
+  font-family: Arial;
+  display: flex;
 }
 
-/* Header */
-.header {
-  background: linear-gradient(135deg, #007bff, #00c6ff);
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e293b;
   color: white;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 28px;
-}
-
-.header p {
-  margin: 10px 0;
-}
-
-.btn {
-  display: inline-block;
-  background: white;
-  color: #007bff;
-  padding: 12px 25px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Services */
-.section {
+  height: 100vh;
   padding: 20px;
 }
 
-.section h2 {
+.sidebar h2 {
   text-align: center;
 }
 
-.service {
+.menu {
+  margin-top: 30px;
+}
+
+.menu div {
+  padding: 12px;
+  margin: 8px 0;
+  background: #334155;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu div:hover {
+  background: #007bff;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  background: #f1f5f9;
+  padding: 20px;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 15px;
+}
+
+.card {
   background: white;
-  margin: 15px 0;
-  padding: 18px;
+  padding: 20px;
   border-radius: 12px;
   text-align: center;
-  font-size: 18px;
-  cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: 0.3s;
 }
 
-.service:hover {
-  transform: scale(1.03);
-  background: #007bff;
-  color: white;
-}
-
-/* Footer */
-.footer {
-  background: #007bff;
-  color: white;
-  text-align: center;
+/* Form */
+.form-box {
+  background: white;
   padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
 }
 </style>
 
@@ -79,33 +91,75 @@ body {
 
 <body>
 
-<div class="header">
-  <h1>NextGen Digital Seva Kendra</h1>
-  <p>Your One Stop Digital Service Center</p>
-  <a href="#services" class="btn">Apply Now</a>
+<div class="sidebar">
+  <h2>CSC Panel</h2>
+
+  <div class="menu">
+    <div onclick="showPage('dashboard')">Dashboard</div>
+    <div onclick="showPage('apply')">Apply Service</div>
+    <div onclick="showPage('users')">Users</div>
+    <div onclick="showPage('reports')">Reports</div>
+  </div>
 </div>
 
-<div class="section" id="services">
-  <h2>Our Services</h2>
+<div class="main">
 
-  <div class="service" onclick="openService('PAN Card')">PAN Card</div>
-  <div class="service" onclick="openService('Aadhaar Card')">Aadhaar Card</div>
-  <div class="service" onclick="openService('Income Certificate')">Income Certificate</div>
-  <div class="service" onclick="openService('Caste Certificate')">Caste Certificate</div>
-  <div class="service" onclick="openService('Passport')">Passport</div>
-  <div class="service" onclick="openService('Bill Payment')">Bill Payment</div>
-  <div class="service" onclick="openService('PM Kisan')">PM Kisan</div>
+  <!-- Dashboard -->
+  <div id="dashboardPage">
+    <h2>Dashboard</h2>
+    <div class="cards">
+      <div class="card">Total Users: 120</div>
+      <div class="card">Applications: 80</div>
+      <div class="card">Pending: 25</div>
+      <div class="card">Completed: 55</div>
+    </div>
+  </div>
 
-</div>
+  <!-- Apply -->
+  <div id="applyPage" style="display:none;">
+    <h2>Apply Service</h2>
 
-<div class="footer">
-  <p>📞 9149383541</p>
-  <p>📧 rihangour258036@gmail.com</p>
+    <div class="form-box">
+      <input type="text" placeholder="Full Name">
+      <input type="text" placeholder="Mobile Number">
+
+      <select>
+        <option>Select Service</option>
+        <option>PAN Card</option>
+        <option>Aadhaar</option>
+        <option>Income Certificate</option>
+      </select>
+
+      <button onclick="submitForm()">Submit</button>
+    </div>
+  </div>
+
+  <!-- Users -->
+  <div id="usersPage" style="display:none;">
+    <h2>Users</h2>
+    <div class="card">User List Coming Soon...</div>
+  </div>
+
+  <!-- Reports -->
+  <div id="reportsPage" style="display:none;">
+    <h2>Reports</h2>
+    <div class="card">Reports Coming Soon...</div>
+  </div>
+
 </div>
 
 <script>
-function openService(serviceName) {
-  alert(serviceName + " service coming soon!");
+function showPage(page) {
+  document.getElementById("dashboardPage").style.display = "none";
+  document.getElementById("applyPage").style.display = "none";
+  document.getElementById("usersPage").style.display = "none";
+  document.getElementById("reportsPage").style.display = "none";
+
+  document.getElementById(page + "Page").style.display = "block";
+}
+
+function submitForm() {
+  alert("Application Submitted Successfully!");
 }
 </script>
 
