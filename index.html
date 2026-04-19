@@ -3,330 +3,763 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextGen Digital Seva - Agra</title>
+<title>NextGen Digital Seva - Saharanpur</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+:root{
+  --blue:#1a56db;--blue-dark:#1e40af;--blue-light:#eff6ff;
+  --green:#16a34a;--green-light:#f0fdf4;
+  --amber:#d97706;--orange:#ea580c;--purple:#7c3aed;
+  --red:#dc2626;--bg:#f0f4ff;--white:#fff;
+  --gray:#64748b;--dark:#0f172a;--border:#e2e8f0;
+}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,sans-serif;background:#f1f5f9;color:#1e293b;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;}
+h1,h2,h3,.brand-name{font-family:'Baloo 2',cursive;}
 
 /* NAVBAR */
-.nav{background:white;border-bottom:1px solid #e2e8f0;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.nav-brand{display:flex;align-items:center;gap:10px;}
-.nav-icon{width:36px;height:36px;background:#1a56db;border-radius:8px;display:flex;align-items:center;justify-content:center;}
-.nav-icon span{color:white;font-size:18px;}
-.nav-title{font-size:16px;font-weight:600;color:#1e293b;}
-.nav-sub{font-size:11px;color:#64748b;}
-.badge-online{background:#d1fae5;color:#065f46;font-size:11px;padding:4px 12px;border-radius:20px;font-weight:600;}
+.navbar{position:sticky;top:0;z-index:999;background:var(--dark);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:62px;box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-logo{width:38px;height:38px;background:linear-gradient(135deg,var(--blue),#60a5fa);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.brand-name{color:white;font-size:17px;font-weight:700;line-height:1.1;}
+.brand-tagline{color:#94a3b8;font-size:10px;}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-badge{background:#16a34a;color:white;font-size:10px;padding:3px 10px;border-radius:20px;font-weight:600;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.6;}}
+.nav-call{background:var(--blue);color:white;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,#1a56db 0%,#1e40af 100%);padding:56px 24px;text-align:center;color:white;}
-.hero h1{font-size:28px;font-weight:700;margin-bottom:10px;}
-.hero p{font-size:15px;opacity:0.85;margin-bottom:28px;}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-white{background:white;color:#1a56db;padding:11px 26px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;}
-.btn-white:hover{background:#eff6ff;}
-.btn-outline{background:transparent;color:white;padding:11px 26px;border-radius:8px;font-size:14px;font-weight:600;border:2px solid rgba(255,255,255,0.6);cursor:pointer;}
-.btn-outline:hover{background:rgba(255,255,255,0.1);}
-.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:36px;flex-wrap:wrap;}
-.stat{text-align:center;}
-.stat-num{font-size:26px;font-weight:700;}
-.stat-label{font-size:12px;opacity:0.75;margin-top:2px;}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 60%,#1e40af 100%);padding:70px 24px 60px;text-align:center;color:white;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 60% 40%,rgba(26,86,219,0.25) 0%,transparent 60%);pointer-events:none;}
+.hero-flag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 14px;border-radius:20px;font-size:12px;margin-bottom:18px;}
+.hero h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:10px;}
+.hero h1 span{color:#60a5fa;}
+.hero-sub{font-size:15px;opacity:0.8;margin-bottom:6px;}
+.hero-loc{font-size:13px;opacity:0.65;margin-bottom:28px;}
+.hero-loc b{color:#fbbf24;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;}
+.btn-white{background:white;color:var(--blue-dark);padding:12px 26px;border-radius:10px;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:'Baloo 2',cursive;transition:0.2s;}
+.btn-white:hover{transform:translateY(-2px);}
+.btn-wa{background:#25d366;color:white;padding:12px 26px;border-radius:10px;font-size:14px;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Baloo 2',cursive;transition:0.2s;}
+.btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:460px;margin:0 auto;}
+.stat-box{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:16px 8px;text-align:center;}
+.stat-box .num{font-size:24px;font-weight:800;font-family:'Baloo 2',cursive;color:#60a5fa;}
+.stat-box .lbl{font-size:11px;opacity:0.7;margin-top:2px;}
 
-/* SECTIONS */
-.section{padding:48px 24px;}
-.section-header{margin-bottom:28px;}
-.section-header h2{font-size:20px;font-weight:700;margin-bottom:6px;}
-.section-header p{font-size:14px;color:#64748b;}
+/* NOTICE */
+.notice{background:linear-gradient(90deg,#d97706,#f59e0b);padding:11px 20px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:white;overflow:hidden;}
+.notice-text{white-space:nowrap;animation:scroll-text 20s linear infinite;}
+@keyframes scroll-text{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
 
-/* SERVICE CARDS */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
-.scard{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:18px;cursor:pointer;transition:all 0.2s;}
-.scard:hover{border-color:#1a56db;transform:translateY(-2px);box-shadow:0 4px 12px rgba(26,86,219,0.1);}
-.scard-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:20px;}
-.scard-icon.blue{background:#eff6ff;}
-.scard-icon.green{background:#f0fdf4;}
-.scard-icon.amber{background:#fffbeb;}
-.scard-icon.purple{background:#faf5ff;}
-.scard h3{font-size:13px;font-weight:600;margin-bottom:4px;color:#1e293b;}
-.scard p{font-size:11px;color:#64748b;}
+/* SECTION BASE */
+.section{padding:52px 24px;}
+.section-alt{background:white;}
+.sec-head{text-align:center;margin-bottom:32px;}
+.sec-head h2{font-size:22px;font-weight:700;margin-bottom:6px;}
+.sec-head p{font-size:14px;color:var(--gray);}
+.tag{display:inline-block;background:var(--blue-light);color:var(--blue);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:10px;letter-spacing:0.5px;}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;}
+.scard{background:white;border:1.5px solid var(--border);border-radius:14px;padding:18px 14px;cursor:pointer;transition:all 0.25s;text-align:center;}
+.scard:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 8px 24px rgba(26,86,219,0.12);}
+.scard-icon{font-size:28px;margin-bottom:10px;}
+.scard h3{font-size:13px;font-weight:600;margin-bottom:3px;}
+.scard p{font-size:11px;color:var(--gray);}
+.scard .fee{display:inline-block;background:#eff6ff;color:var(--blue);font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;margin-top:6px;}
+
+/* SCHEMES */
+.schemes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.scheme-card{background:white;border:1.5px solid var(--border);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start;transition:0.2s;}
+.scheme-card:hover{border-color:var(--green);box-shadow:0 4px 16px rgba(22,163,74,0.1);}
+.scheme-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.g{background:#f0fdf4;}.b{background:#eff6ff;}.a{background:#fffbeb;}.p{background:#faf5ff;}
+.scheme-body h3{font-size:13px;font-weight:600;margin-bottom:4px;}
+.scheme-body p{font-size:12px;color:var(--gray);line-height:1.5;}
+.scheme-badge{display:inline-block;background:#d1fae5;color:#065f46;font-size:10px;padding:2px 8px;border-radius:20px;margin-top:6px;font-weight:600;}
+
+/* PROCESS */
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.step{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;}
+.step-num{width:36px;height:36px;background:var(--blue);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;margin:0 auto 12px;font-family:'Baloo 2',cursive;}
+.step h3{font-size:13px;font-weight:600;margin-bottom:4px;}
+.step p{font-size:12px;color:var(--gray);line-height:1.5;}
+
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:900px;margin:0 auto;}
+.price-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:24px;text-align:center;transition:0.2s;}
+.price-card.featured{border-color:var(--blue);box-shadow:0 8px 32px rgba(26,86,219,0.15);}
+.popular-tag{display:inline-block;background:var(--blue);color:white;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;margin-bottom:12px;}
+.price-card h3{font-size:16px;font-weight:700;margin-bottom:4px;}
+.price{font-size:30px;font-weight:800;color:var(--blue);font-family:'Baloo 2',cursive;}
+.price span{font-size:14px;font-weight:400;color:var(--gray);}
+.price-card > p{font-size:12px;color:var(--gray);margin-bottom:16px;}
+.price-card ul{list-style:none;text-align:left;margin-bottom:20px;}
+.price-card ul li{font-size:12px;padding:5px 0;border-bottom:1px solid var(--border);color:var(--gray);}
+.price-card ul li::before{content:"✓ ";color:var(--green);font-weight:700;}
+.price-btn{width:100%;padding:10px;background:var(--blue);color:white;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Baloo 2',cursive;}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.testi-card{background:white;border:1.5px solid var(--border);border-radius:14px;padding:20px;}
+.testi-stars{color:#f59e0b;font-size:14px;margin-bottom:10px;}
+.testi-text{font-size:13px;color:var(--dark);line-height:1.6;margin-bottom:14px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:10px;}
+.testi-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0;}
+.testi-name{font-size:13px;font-weight:600;}
+.testi-place{font-size:11px;color:var(--gray);}
+
+/* DOCS CHECKLIST */
+.docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
+.doc-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:16px;text-align:center;}
+.doc-icon{font-size:32px;margin-bottom:8px;}
+.doc-card h3{font-size:12px;font-weight:600;margin-bottom:3px;}
+.doc-card p{font-size:11px;color:var(--gray);}
+.doc-time{display:inline-block;background:#fffbeb;color:#92400e;font-size:10px;padding:2px 8px;border-radius:20px;margin-top:6px;font-weight:600;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;}
+@media(max-width:600px){.about-grid{grid-template-columns:1fr;}}
+.about-img-box{background:linear-gradient(135deg,#dbeafe,#eff6ff);border-radius:16px;height:280px;display:flex;align-items:center;justify-content:center;font-size:80px;}
+.about-content h2{font-size:22px;font-weight:700;margin-bottom:14px;}
+.about-content p{font-size:13px;color:var(--gray);line-height:1.8;margin-bottom:12px;}
+.about-list{list-style:none;}
+.about-list li{font-size:13px;padding:6px 0;color:var(--dark);display:flex;align-items:center;gap:8px;}
+.check-dot{background:var(--green);color:white;width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;}
+
+/* TIMING */
+.timing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.timing-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+.timing-card h3{font-size:14px;font-weight:600;margin-bottom:8px;}
+.timing-time{font-size:22px;font-weight:800;color:var(--blue);font-family:'Baloo 2',cursive;}
+.timing-card p{font-size:11px;color:var(--gray);margin-top:4px;}
+.open-tag{display:inline-block;background:#d1fae5;color:#065f46;font-size:10px;padding:2px 10px;border-radius:20px;margin-top:6px;font-weight:700;}
+
+/* COUNTER SECTION */
+.counter-section{background:linear-gradient(135deg,var(--blue),var(--blue-dark));padding:52px 24px;text-align:center;color:white;}
+.counter-section h2{font-size:22px;font-weight:700;margin-bottom:8px;}
+.counter-section > p{font-size:14px;opacity:0.75;margin-bottom:36px;}
+.counter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:20px;max-width:700px;margin:0 auto;}
+.counter-box .c-num{font-size:36px;font-weight:800;font-family:'Baloo 2',cursive;}
+.counter-box .c-lbl{font-size:12px;opacity:0.75;margin-top:4px;}
 
 /* WHY US */
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
-.why-card{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:18px;}
-.why-card .icon{font-size:24px;margin-bottom:10px;}
-.why-card h3{font-size:14px;font-weight:600;margin-bottom:6px;color:#1e293b;}
-.why-card p{font-size:12px;color:#64748b;line-height:1.6;}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.why-card{background:white;border:1.5px solid var(--border);border-radius:14px;padding:20px;}
+.why-icon{font-size:26px;margin-bottom:10px;}
+.why-card h3{font-size:14px;font-weight:600;margin-bottom:6px;}
+.why-card p{font-size:12px;color:var(--gray);line-height:1.6;}
+
+/* FAQ */
+.faq-list{max-width:700px;margin:0 auto;}
+.faq-item{background:white;border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.faq-q{padding:16px 20px;font-size:14px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-arrow{font-size:18px;color:var(--blue);transition:transform 0.3s;}
+.faq-a{font-size:13px;color:var(--gray);line-height:1.7;max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s;padding:0 20px;}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px;}
+.faq-item.open .faq-arrow{transform:rotate(45deg);}
 
 /* APPLY FORM */
-.apply-box{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:28px;max-width:500px;margin:0 auto;}
-.apply-box h2{font-size:18px;font-weight:700;margin-bottom:4px;}
-.apply-box .sub{font-size:13px;color:#64748b;margin-bottom:22px;}
-.field-wrap{margin-bottom:16px;}
-.field-label{font-size:12px;color:#64748b;margin-bottom:6px;font-weight:500;}
-.field-wrap input,.field-wrap select{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #e2e8f0;background:#f8fafc;color:#1e293b;font-size:14px;outline:none;}
-.field-wrap input:focus,.field-wrap select:focus{border-color:#1a56db;background:white;}
-.submit-btn{width:100%;padding:13px;background:#1a56db;color:white;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;margin-top:6px;}
-.submit-btn:hover{background:#1e40af;}
-.success-msg{display:none;background:#d1fae5;color:#065f46;padding:14px;border-radius:8px;font-size:14px;text-align:center;margin-top:14px;font-weight:500;}
-
-/* WHATSAPP */
-.whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:white;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;}
-.whatsapp-btn:hover{background:#1ebe5d;}
+.apply-wrap{max-width:560px;margin:0 auto;}
+.apply-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:32px;box-shadow:0 8px 32px rgba(26,86,219,0.08);}
+.apply-card h2{font-size:20px;font-weight:700;margin-bottom:6px;}
+.apply-card .sub{font-size:13px;color:var(--gray);margin-bottom:24px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:480px){.field-row{grid-template-columns:1fr;}}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--gray);margin-bottom:6px;}
+.field input,.field select,.field textarea{width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid var(--border);background:#f8fafc;color:var(--dark);font-size:14px;font-family:'Noto Sans',sans-serif;transition:0.2s;outline:none;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);background:white;}
+.field textarea{resize:none;height:90px;}
+.submit-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:white;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Baloo 2',cursive;transition:0.2s;margin-top:4px;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,86,219,0.3);}
+.success-box{display:none;background:#d1fae5;border:1px solid #6ee7b7;color:#065f46;padding:16px;border-radius:10px;font-size:14px;text-align:center;margin-top:16px;font-weight:600;}
 
 /* CONTACT */
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
-.contact-card{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:18px;display:flex;align-items:center;gap:14px;}
-.contact-icon{width:44px;height:44px;background:#eff6ff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.contact-info p:first-child{font-size:11px;color:#64748b;margin-bottom:3px;}
-.contact-info p:last-child{font-size:14px;font-weight:600;color:#1a56db;}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.contact-card{background:white;border:1.5px solid var(--border);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:center;}
+.contact-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.ci-blue{background:#eff6ff;}.ci-green{background:#f0fdf4;}.ci-amber{background:#fffbeb;}.ci-purple{background:#faf5ff;}
+.contact-label{font-size:11px;color:var(--gray);margin-bottom:3px;}
+.contact-value{font-size:14px;font-weight:600;color:var(--dark);}
+
+/* MAP */
+.map-container{background:white;border:1.5px solid var(--border);border-radius:16px;overflow:hidden;}
+.map-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.map-header h3{font-size:16px;font-weight:700;}
+.map-link{background:var(--blue);color:white;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;}
+.map-body{background:linear-gradient(135deg,#dbeafe,#e0f2fe);height:260px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;}
+.map-body p{font-size:13px;color:var(--gray);}
+
+/* LOCATIONS */
+.loc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;}
+.loc-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:16px;display:flex;gap:12px;align-items:flex-start;}
+.loc-icon{font-size:20px;flex-shrink:0;}
+.loc-card h3{font-size:13px;font-weight:600;margin-bottom:3px;}
+.loc-card p{font-size:11px;color:var(--gray);line-height:1.5;}
+
+/* CERTS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+.cert-card{background:white;border:2px solid var(--border);border-radius:14px;padding:20px;text-align:center;position:relative;overflow:hidden;}
+.cert-card::after{content:'VERIFIED';position:absolute;top:12px;right:-18px;background:#16a34a;color:white;font-size:9px;font-weight:700;padding:3px 28px;transform:rotate(45deg);}
+.cert-icon{font-size:36px;margin-bottom:10px;}
+.cert-card h3{font-size:14px;font-weight:600;margin-bottom:4px;}
+.cert-card p{font-size:12px;color:var(--gray);}
+
+/* SOCIAL */
+.social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
+.social-card{background:white;border:1.5px solid var(--border);border-radius:14px;padding:20px;text-align:center;text-decoration:none;transition:0.2s;display:block;}
+.social-card:hover{transform:translateY(-3px);border-color:var(--blue);}
+.s-icon{font-size:32px;margin-bottom:10px;}
+.social-card h3{font-size:13px;font-weight:600;color:var(--dark);}
+.social-card p{font-size:11px;color:var(--gray);}
+
+/* NEWSLETTER */
+.nl-box{background:linear-gradient(135deg,#1e3a8a,#1e40af);border-radius:16px;padding:36px 24px;text-align:center;color:white;}
+.nl-box h2{font-size:20px;font-weight:700;margin-bottom:8px;}
+.nl-box > p{font-size:13px;opacity:0.8;margin-bottom:22px;}
+.nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto;flex-wrap:wrap;}
+.nl-form input{flex:1;min-width:180px;padding:11px 16px;border-radius:10px;border:none;background:rgba(255,255,255,0.15);color:white;font-size:14px;outline:none;}
+.nl-form input::placeholder{color:rgba(255,255,255,0.5);}
+.nl-form button{padding:11px 22px;background:white;color:var(--blue-dark);border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Baloo 2',cursive;}
+
+/* EMERGENCY */
+.emergency-section{background:linear-gradient(135deg,#dc2626,#b91c1c);padding:40px 24px;text-align:center;color:white;}
+.emergency-section h2{font-size:22px;font-weight:700;margin-bottom:8px;}
+.emergency-section p{font-size:14px;opacity:0.85;margin-bottom:24px;}
+.emergency-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.e-btn{padding:12px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:'Baloo 2',cursive;text-decoration:none;display:inline-block;}
+.e-btn-white{background:white;color:#dc2626;}
+.e-btn-wa{background:#25d366;color:white;}
 
 /* FOOTER */
-footer{background:#0f172a;color:white;padding:28px 24px;text-align:center;}
-footer p{font-size:13px;opacity:0.75;}
-footer p+p{margin-top:6px;}
+footer{background:#0f172a;color:white;padding:48px 24px 28px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+@media(max-width:600px){.footer-top{grid-template-columns:1fr;}}
+.footer-brand h3{font-size:18px;font-weight:700;margin-bottom:8px;}
+.footer-brand p{font-size:12px;color:#94a3b8;line-height:1.7;margin-bottom:14px;}
+.footer-col h4{font-size:13px;font-weight:700;margin-bottom:14px;color:#e2e8f0;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{font-size:12px;color:#94a3b8;padding:5px 0;}
+.footer-bottom{border-top:1px solid #1e293b;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-bottom p{font-size:11px;color:#64748b;}
 
-/* RESPONSIVE */
-@media(max-width:600px){
-  .hero h1{font-size:22px;}
-  .hero-stats{gap:24px;}
-  .stat-num{font-size:20px;}
+/* FLOATING */
+.wa-float{position:fixed;bottom:72px;right:20px;width:50px;height:50px;background:#25d366;color:white;border:none;border-radius:50%;font-size:24px;cursor:pointer;box-shadow:0 4px 16px rgba(37,211,102,0.4);z-index:100;display:flex;align-items:center;justify-content:center;text-decoration:none;}
+.scroll-top-btn{position:fixed;bottom:18px;right:20px;width:44px;height:44px;background:var(--blue);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;box-shadow:0 4px 16px rgba(26,86,219,0.3);z-index:100;display:none;align-items:center;justify-content:center;}
+.scroll-top-btn.visible{display:flex;}
+
+@media(max-width:640px){
+  .hero h1{font-size:24px;}
+  .navbar{padding:0 14px;}
+  .section{padding:40px 16px;}
+  .nav-badge{display:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<div class="nav">
-  <div class="nav-brand">
-    <div class="nav-icon"><span>🏛️</span></div>
+<!-- 1. NAVBAR -->
+<nav class="navbar">
+  <div class="brand">
+    <div class="brand-logo">🏛️</div>
     <div>
-      <div class="nav-title">NextGen Digital Seva</div>
-      <div class="nav-sub">Agra, Uttar Pradesh</div>
+      <div class="brand-name">NextGen Digital Seva</div>
+      <div class="brand-tagline">Saharanpur, Uttar Pradesh</div>
     </div>
   </div>
-  <span class="badge-online">● Online</span>
-</div>
+  <div class="nav-right">
+    <span class="nav-badge">● Online</span>
+    <a href="tel:9149383541" class="nav-call">📞 Call Now</a>
+  </div>
+</nav>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Digital Seva Kendra</h1>
-  <p>Sarkaari documents aur schemes ke liye aapka bharosemand saathi</p>
+<!-- 2. HERO -->
+<section class="hero">
+  <div class="hero-flag">🇮🇳 CSC Registered · Govt. Authorized</div>
+  <h1>NextGen <span>Digital Seva</span><br>Kendra</h1>
+  <p class="hero-sub">Sabhi Sarkaari Kaam Ek Hi Jagah Par</p>
+  <p class="hero-loc">📍 <b>Saharanpur, Uttar Pradesh</b> — Fast · Secure · Affordable</p>
   <div class="hero-btns">
-    <button class="btn-white" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Apply Karo</button>
-    <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services Dekho</button>
+    <button class="btn-white" onclick="gotoApply()">Apply Karo Abhi</button>
+    <a href="https://wa.me/919149383541" class="btn-wa">💬 WhatsApp Karo</a>
   </div>
   <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">5000+</div>
-      <div class="stat-label">Applications Done</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">15+</div>
-      <div class="stat-label">Services Available</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">4.8 ★</div>
-      <div class="stat-label">Customer Rating</div>
-    </div>
+    <div class="stat-box"><div class="num">8000+</div><div class="lbl">Applications</div></div>
+    <div class="stat-box"><div class="num">20+</div><div class="lbl">Services</div></div>
+    <div class="stat-box"><div class="num">4.9★</div><div class="lbl">Rating</div></div>
   </div>
+</section>
+
+<!-- 3. NOTICE BAR -->
+<div class="notice">
+  📢 &nbsp;
+  <div class="notice-text">🔥 PM Awas Yojana Registration Shuru! &nbsp;|&nbsp; Aadhaar Update Free &nbsp;|&nbsp; PAN Card 24 ghante mein &nbsp;|&nbsp; PM Kisan Registration Open &nbsp;|&nbsp; UP Scholarship 2025 Form Available</div>
 </div>
 
-<!-- SERVICES -->
-<div class="section" id="services">
-  <div class="section-header">
-    <h2>Hamaari Services</h2>
-    <p>Sabhi government documents ek jagah par</p>
+<!-- 4. SERVICES -->
+<section class="section" id="services">
+  <div class="sec-head">
+    <div class="tag">HAMAARI SERVICES</div>
+    <h2>20+ Sarkaari Seva Ek Jagah</h2>
+    <p>Kisi bhi service ke liye seedha card pe click karo — form automatically select hoga</p>
   </div>
   <div class="services-grid">
-    <div class="scard" onclick="selectService('PAN Card')">
-      <div class="scard-icon blue">🪪</div>
-      <h3>PAN Card</h3>
-      <p>New / Correction</p>
+    <div class="scard" onclick="selectService('PAN Card')"><div class="scard-icon">🪪</div><h3>PAN Card</h3><p>New / Correction</p><span class="fee">₹150 se</span></div>
+    <div class="scard" onclick="selectService('Aadhaar Card')"><div class="scard-icon">🆔</div><h3>Aadhaar Card</h3><p>Update / Correction</p><span class="fee">₹50 se</span></div>
+    <div class="scard" onclick="selectService('Income Certificate')"><div class="scard-icon">📄</div><h3>Income Certificate</h3><p>Aay Praman Patra</p><span class="fee">₹100 se</span></div>
+    <div class="scard" onclick="selectService('Caste Certificate')"><div class="scard-icon">📋</div><h3>Caste Certificate</h3><p>Jaati Praman Patra</p><span class="fee">₹100 se</span></div>
+    <div class="scard" onclick="selectService('Passport')"><div class="scard-icon">🛂</div><h3>Passport</h3><p>New / Renewal</p><span class="fee">₹200 se</span></div>
+    <div class="scard" onclick="selectService('Voter ID')"><div class="scard-icon">🗳️</div><h3>Voter ID</h3><p>New / Correction</p><span class="fee">₹100 se</span></div>
+    <div class="scard" onclick="selectService('Driving License')"><div class="scard-icon">🚗</div><h3>Driving License</h3><p>New / Renew</p><span class="fee">₹200 se</span></div>
+    <div class="scard" onclick="selectService('Birth Certificate')"><div class="scard-icon">👶</div><h3>Birth Certificate</h3><p>Janam Praman Patra</p><span class="fee">₹100 se</span></div>
+    <div class="scard" onclick="selectService('Death Certificate')"><div class="scard-icon">📃</div><h3>Death Certificate</h3><p>Mrityu Praman Patra</p><span class="fee">₹100 se</span></div>
+    <div class="scard" onclick="selectService('Marriage Certificate')"><div class="scard-icon">💍</div><h3>Marriage Cert.</h3><p>Vivah Praman Patra</p><span class="fee">₹150 se</span></div>
+    <div class="scard" onclick="selectService('PM Kisan')"><div class="scard-icon">🌾</div><h3>PM Kisan</h3><p>Registration / Status</p><span class="fee">₹50 se</span></div>
+    <div class="scard" onclick="selectService('Bill Payment')"><div class="scard-icon">💡</div><h3>Bill Payment</h3><p>Bijli / Paani / Gas</p><span class="fee">₹20 se</span></div>
+    <div class="scard" onclick="selectService('Railway Ticket')"><div class="scard-icon">🚂</div><h3>Railway Ticket</h3><p>IRCTC Booking</p><span class="fee">₹30 se</span></div>
+    <div class="scard" onclick="selectService('Insurance')"><div class="scard-icon">🛡️</div><h3>Insurance</h3><p>PM Jeevan / Suraksha</p><span class="fee">₹50 se</span></div>
+    <div class="scard" onclick="selectService('Bank Account')"><div class="scard-icon">🏦</div><h3>Bank Account</h3><p>Jan Dhan / KYC</p><span class="fee">Free</span></div>
+    <div class="scard" onclick="selectService('Scholarship')"><div class="scard-icon">🎓</div><h3>Scholarship</h3><p>UP Scholarship Form</p><span class="fee">₹50 se</span></div>
+  </div>
+</section>
+
+<!-- 5. GOVT SCHEMES -->
+<section class="section section-alt">
+  <div class="sec-head">
+    <div class="tag">SARKAARI YOJNAYEIN</div>
+    <h2>In Yojnaon Ka Laabh Uthayein</h2>
+    <p>Saharanpur ke naagirkon ke liye sabhi badi central aur state yojnayein</p>
+  </div>
+  <div class="schemes-grid">
+    <div class="scheme-card"><div class="scheme-icon g">🏠</div><div class="scheme-body"><h3>PM Awas Yojana</h3><p>Garib parivaaron ko pakka ghar dene ki yojana. Free mein registration karein.</p><span class="scheme-badge">Registration Open</span></div></div>
+    <div class="scheme-card"><div class="scheme-icon b">🌾</div><div class="scheme-body"><h3>PM Kisan Samman Nidhi</h3><p>Kisan parivaaron ko ₹6000 pratigya sahayata har saal milti hai.</p><span class="scheme-badge">Active</span></div></div>
+    <div class="scheme-card"><div class="scheme-icon a">🏥</div><div class="scheme-body"><h3>Ayushman Bharat</h3><p>Garib parivaaron ko ₹5 lakh tak ka muft hospital treatment.</p><span class="scheme-badge">Apply Karein</span></div></div>
+    <div class="scheme-card"><div class="scheme-icon p">🎓</div><div class="scheme-body"><h3>UP Scholarship 2025</h3><p>SC/ST/OBC/General sabhi varg ke chhatron ke liye scholarship.</p><span class="scheme-badge">New Batch Open</span></div></div>
+    <div class="scheme-card"><div class="scheme-icon g">👩</div><div class="scheme-body"><h3>Mahila Samridhi Yojana</h3><p>Mahilaon ke liye vyavsay ke liye rin aur pashikshan suvidha.</p><span class="scheme-badge">Apply Karein</span></div></div>
+    <div class="scheme-card"><div class="scheme-icon b">⚡</div><div class="scheme-body"><h3>PM Ujjwala Yojana</h3><p>BPL parivaaron ko muft LPG gas connection milta hai.</p><span class="scheme-badge">Available</span></div></div>
+  </div>
+</section>
+
+<!-- 6. HOW IT WORKS -->
+<section class="section">
+  <div class="sec-head">
+    <div class="tag">KAISE KAAM KARTA HAI</div>
+    <h2>Sirf 4 Aasaan Steps</h2>
+    <p>Ghar baithe ya hamare kendra aakar apna kaam karwaein</p>
+  </div>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><h3>Service Chunein</h3><p>Website ya WhatsApp par apni zaroorat ki service select karein</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Documents Dein</h3><p>Zaruri documents humein WhatsApp par ya personally laake dein</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Payment Karein</h3><p>UPI ya Cash — dono tarike se payment karein, pakki receipt milegi</p></div>
+    <div class="step"><div class="step-num">4</div><h3>Document Paayein</h3><p>Same day ya 2-3 working days mein aapka kaam poora ho jayega</p></div>
+  </div>
+</section>
+
+<!-- 7. TIMING -->
+<section class="section section-alt">
+  <div class="sec-head">
+    <div class="tag">KENDRA KA SAMAY</div>
+    <h2>Humara Schedule</h2>
+    <p>Kabhi bhi aaiye — hum aapke liye taiyaar hain</p>
+  </div>
+  <div class="timing-grid">
+    <div class="timing-card"><h3>Somwar – Shukravar</h3><div class="timing-time">9:00 – 7:00</div><p>Monday to Friday</p><span class="open-tag">● Open</span></div>
+    <div class="timing-card"><h3>Shanivaar</h3><div class="timing-time">9:00 – 5:00</div><p>Saturday</p><span class="open-tag">● Open</span></div>
+    <div class="timing-card"><h3>Ravivaar</h3><div class="timing-time">10:00 – 2:00</div><p>Sunday (Half Day)</p><span class="open-tag">● Open</span></div>
+    <div class="timing-card"><h3>WhatsApp / Phone</h3><div class="timing-time">24 × 7</div><p>Online Support Always</p><span class="open-tag">● Always On</span></div>
+  </div>
+</section>
+
+<!-- 8. PRICING -->
+<section class="section">
+  <div class="sec-head">
+    <div class="tag">RATE CARD</div>
+    <h2>Seedha Aur Sasta Rate</h2>
+    <p>Koi chhupa hua charge nahi — jo dikhta hai wahi lagta hai</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card">
+      <h3>Basic Services</h3>
+      <div class="price">₹50 <span>se shuru</span></div>
+      <p>Chhote aur routine kaam ke liye</p>
+      <ul>
+        <li>Bill Payment</li>
+        <li>Aadhaar Update</li>
+        <li>Bank KYC</li>
+        <li>PM Kisan Status</li>
+      </ul>
+      <button class="price-btn" onclick="gotoApply()">Apply Karein</button>
     </div>
-    <div class="scard" onclick="selectService('Aadhaar Card')">
-      <div class="scard-icon green">🆔</div>
-      <h3>Aadhaar Card</h3>
-      <p>Update / Correction</p>
+    <div class="price-card featured">
+      <div class="popular-tag">⭐ Sabse Popular</div>
+      <h3>Standard Package</h3>
+      <div class="price">₹150 <span>se shuru</span></div>
+      <p>Government certificates ke liye</p>
+      <ul>
+        <li>PAN / Voter ID / Aadhaar</li>
+        <li>Income / Caste Certificate</li>
+        <li>Birth / Death Certificate</li>
+        <li>Free Follow-up Included</li>
+      </ul>
+      <button class="price-btn" onclick="gotoApply()">Apply Karein</button>
     </div>
-    <div class="scard" onclick="selectService('Income Certificate')">
-      <div class="scard-icon amber">📄</div>
-      <h3>Income Certificate</h3>
-      <p>Aay Praman Patra</p>
-    </div>
-    <div class="scard" onclick="selectService('Caste Certificate')">
-      <div class="scard-icon purple">📋</div>
-      <h3>Caste Certificate</h3>
-      <p>Jaati Praman Patra</p>
-    </div>
-    <div class="scard" onclick="selectService('Passport')">
-      <div class="scard-icon blue">🛂</div>
-      <h3>Passport</h3>
-      <p>New / Renewal</p>
-    </div>
-    <div class="scard" onclick="selectService('Voter ID')">
-      <div class="scard-icon green">🗳️</div>
-      <h3>Voter ID</h3>
-      <p>New / Correction</p>
-    </div>
-    <div class="scard" onclick="selectService('PM Kisan')">
-      <div class="scard-icon amber">🌾</div>
-      <h3>PM Kisan</h3>
-      <p>Registration / Status</p>
-    </div>
-    <div class="scard" onclick="selectService('Bill Payment')">
-      <div class="scard-icon purple">💡</div>
-      <h3>Bill Payment</h3>
-      <p>Bijli / Paani / Gas</p>
+    <div class="price-card">
+      <h3>Premium Services</h3>
+      <div class="price">₹200 <span>se shuru</span></div>
+      <p>Badi aur complex zarooraton ke liye</p>
+      <ul>
+        <li>Passport / Driving License</li>
+        <li>Marriage Certificate</li>
+        <li>Scholarship Forms</li>
+        <li>Priority Processing</li>
+      </ul>
+      <button class="price-btn" onclick="gotoApply()">Apply Karein</button>
     </div>
   </div>
-</div>
+</section>
 
-<!-- WHY US -->
-<div class="section" style="background:white;">
-  <div class="section-header">
-    <h2>Humein Kyun Chunein?</h2>
-    <p>Hamaari service ki khasiyat</p>
+<!-- 9. DOCUMENT CHECKLIST -->
+<section class="section section-alt">
+  <div class="sec-head">
+    <div class="tag">DOCUMENTS CHECKLIST</div>
+    <h2>Kya Kya Laana Hoga?</h2>
+    <p>Service aane se pehle ye documents taiyaar rakhein — time bachega</p>
+  </div>
+  <div class="docs-grid">
+    <div class="doc-card"><div class="doc-icon">🪪</div><h3>PAN Card</h3><p>Aadhaar + Photo + Form 49A</p><span class="doc-time">⏱ 1–3 din</span></div>
+    <div class="doc-card"><div class="doc-icon">🆔</div><h3>Aadhaar Update</h3><p>Old Aadhaar + Address Proof</p><span class="doc-time">⏱ Same day</span></div>
+    <div class="doc-card"><div class="doc-icon">📄</div><h3>Income Certificate</h3><p>Ration Card + Aadhaar + Photo</p><span class="doc-time">⏱ 2–5 din</span></div>
+    <div class="doc-card"><div class="doc-icon">🛂</div><h3>Passport</h3><p>Aadhaar + Birth Cert + Address</p><span class="doc-time">⏱ 15–30 din</span></div>
+    <div class="doc-card"><div class="doc-icon">🗳️</div><h3>Voter ID</h3><p>Aadhaar + Photo + Address</p><span class="doc-time">⏱ 7–15 din</span></div>
+    <div class="doc-card"><div class="doc-icon">🌾</div><h3>PM Kisan</h3><p>Aadhaar + Khatoni + Bank Book</p><span class="doc-time">⏱ 2–3 din</span></div>
+    <div class="doc-card"><div class="doc-icon">🚗</div><h3>Driving License</h3><p>Aadhaar + Photo + Medical</p><span class="doc-time">⏱ 7–10 din</span></div>
+    <div class="doc-card"><div class="doc-icon">🎓</div><h3>Scholarship</h3><p>Marksheet + Aadhaar + Bank</p><span class="doc-time">⏱ 3–5 din</span></div>
+  </div>
+</section>
+
+<!-- 10. ABOUT US -->
+<section class="section">
+  <div class="about-grid">
+    <div class="about-img-box">🏛️</div>
+    <div class="about-content">
+      <div class="tag">HAMARE BAARE MEIN</div>
+      <h2>Saharanpur Ka Bharosemand Digital Seva Kendra</h2>
+      <p>NextGen Digital Seva Kendra 2019 se Saharanpur mein sarkaari documents aur yojnaon ke liye seva de raha hai. Humara lakshya hai ki har nagarik ko ghar ke paas mein sabhi sarkaari suvidhaein milein.</p>
+      <p>Hum CSC (Common Service Centre) ke authorized operator hain aur UP government ke saath registered hain.</p>
+      <ul class="about-list">
+        <li><span class="check-dot">✓</span> CSC Registered & Government Authorized</li>
+        <li><span class="check-dot">✓</span> 5+ saal ka experience Saharanpur mein</li>
+        <li><span class="check-dot">✓</span> 8000+ successful applications complete</li>
+        <li><span class="check-dot">✓</span> Hindi mein poori sahayata</li>
+        <li><span class="check-dot">✓</span> 100% transparent pricing</li>
+        <li><span class="check-dot">✓</span> Same day processing available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 11. STATS -->
+<section class="counter-section">
+  <h2>Hamare Numbers Bolte Hain</h2>
+  <p>Saharanpur ke naagirkon ka vishwas hamaari sabse badi taakat hai</p>
+  <div class="counter-grid">
+    <div class="counter-box"><div class="c-num">8000+</div><div class="c-lbl">Applications Done</div></div>
+    <div class="counter-box"><div class="c-num">5+</div><div class="c-lbl">Years Experience</div></div>
+    <div class="counter-box"><div class="c-num">20+</div><div class="c-lbl">Services Available</div></div>
+    <div class="counter-box"><div class="c-num">4.9★</div><div class="c-lbl">Average Rating</div></div>
+    <div class="counter-box"><div class="c-num">98%</div><div class="c-lbl">Success Rate</div></div>
+  </div>
+</section>
+
+<!-- 12. WHY CHOOSE US -->
+<section class="section section-alt">
+  <div class="sec-head">
+    <div class="tag">HUMEIN KYUN CHUNEIN</div>
+    <h2>Hamaari Khasiyat</h2>
+    <p>Jo dusre nahi karte, woh hum karte hain</p>
   </div>
   <div class="why-grid">
-    <div class="why-card">
-      <div class="icon">⚡</div>
-      <h3>Fast Service</h3>
-      <p>Same day processing available hai sabhi documents ke liye</p>
+    <div class="why-card"><div class="why-icon">⚡</div><h3>Same Day Processing</h3><p>Bahut si services ka kaam usi din ho jaata hai. Aapka samay hamein pata hai.</p></div>
+    <div class="why-card"><div class="why-icon">🔒</div><h3>Data Bilkul Safe</h3><p>Aapke documents aur personal info 100% secure rakhe jaate hain.</p></div>
+    <div class="why-card"><div class="why-icon">💰</div><h3>Sabse Sasta Rate</h3><p>Saharanpur mein sabse kam daam mein sabse behtar service. Koi hidden charge nahi.</p></div>
+    <div class="why-card"><div class="why-icon">📱</div><h3>WhatsApp Support</h3><p>Koi bhi sawaal 24 ghante WhatsApp par poochho — hum jawab denge.</p></div>
+    <div class="why-card"><div class="why-icon">🏛️</div><h3>Govt. Registered</h3><p>Hum CSC authorized operator hain. Aapka kaam legally sahi tarike se hoga.</p></div>
+    <div class="why-card"><div class="why-icon">🔄</div><h3>Free Follow-Up</h3><p>Application ke baad bhi hum status track karte hain jab tak kaam poora na ho.</p></div>
+  </div>
+</section>
+
+<!-- 13. TESTIMONIALS -->
+<section class="section">
+  <div class="sec-head">
+    <div class="tag">CUSTOMERS KI BAATEIN</div>
+    <h2>Logon Ne Kya Kaha</h2>
+    <p>Saharanpur ke asli customers ke real reviews</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Mere PAN card ka kaam ek din mein ho gaya. Bahut fast aur bharosemand service hai. Main sab logo ko recommend karta hoon."</p><div class="testi-author"><div class="testi-avatar" style="background:#1a56db;">RK</div><div><div class="testi-name">Ramesh Kumar</div><div class="testi-place">Saharanpur City</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"PM Kisan registration ke liye gaya tha, service ka rate bahut kam tha aur kaam 2 din mein ho gaya. Bahut acha kendra hai."</p><div class="testi-author"><div class="testi-avatar" style="background:#16a34a;">SB</div><div><div class="testi-name">Suresh Babu</div><div class="testi-place">Behat, Saharanpur</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Meri beti ka scholarship form yahan se bhara. Bahut helpful staff hai, sab kuch Hindi mein samjhaya. Bahut dhanyavaad."</p><div class="testi-author"><div class="testi-avatar" style="background:#7c3aed;">MP</div><div><div class="testi-name">Meena Prajapati</div><div class="testi-place">Deoband, Saharanpur</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Income certificate aur caste certificate dono ek saath bana diye. Bilkul sahi rate pe. Puri tarah se satisfied hoon."</p><div class="testi-author"><div class="testi-avatar" style="background:#d97706;">AH</div><div><div class="testi-name">Akram Hussain</div><div class="testi-place">Nakur, Saharanpur</div></div></div></div>
+  </div>
+</section>
+
+<!-- 14. CERTIFICATIONS -->
+<section class="section section-alt">
+  <div class="sec-head">
+    <div class="tag">HAMAARI MANYATAYEIN</div>
+    <h2>Government Authorized</h2>
+    <p>Ye sab certifications hamaari genuineness ki guarantee hain</p>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card"><div class="cert-icon">🏛️</div><h3>CSC Registered</h3><p>Common Service Centre, Govt. of India</p></div>
+    <div class="cert-card"><div class="cert-icon">📜</div><h3>UP Govt. Authorized</h3><p>Uttar Pradesh Government Recognized</p></div>
+    <div class="cert-card"><div class="cert-icon">🔒</div><h3>UIDAI Authorized</h3><p>Aadhaar Enrollment & Update Center</p></div>
+    <div class="cert-card"><div class="cert-icon">💳</div><h3>NSDL PAN Agent</h3><p>Official PAN Card Processing Agent</p></div>
+  </div>
+</section>
+
+<!-- 15. SERVICE AREAS -->
+<section class="section">
+  <div class="sec-head">
+    <div class="tag">SERVICE AREA</div>
+    <h2>Saharanpur Ke In Ilakon Mein Service</h2>
+    <p>Hum in sabhi tehsils aur towns mein digital seva provide karte hain</p>
+  </div>
+  <div class="loc-grid">
+    <div class="loc-card"><div class="loc-icon">📍</div><div><h3>Saharanpur City</h3><p>Main shahar ke sabhi mohalle</p></div></div>
+    <div class="loc-card"><div class="loc-icon">📍</div><div><h3>Deoband</h3><p>Deoband aur aaspaas ke gaon</p></div></div>
+    <div class="loc-card"><div class="loc-icon">📍</div><div><h3>Behat</h3><p>Behat block ka poora ilaka</p></div></div>
+    <div class="loc-card"><div class="loc-icon">📍</div><div><h3>Nakur</h3><p>Nakur tehsil ke sabhi gaon</p></div></div>
+    <div class="loc-card"><div class="loc-icon">📍</div><div><h3>Gangoh</h3><p>Gangoh aur surrounding areas</p></div></div>
+    <div class="loc-card"><div class="loc-icon">📍</div><div><h3>Rampur Maniharan</h3><p>Rampur block ka ilaka</p></div></div>
+    <div class="loc-card"><div class="loc-icon">📍</div><div><h3>Sarsawa</h3><p>Sarsawa aur aaspaas ke gaon</p></div></div>
+    <div class="loc-card"><div class="loc-icon">📍</div><div><h3>Muzaffabad</h3><p>Muzaffabad block region</p></div></div>
+  </div>
+</section>
+
+<!-- 16. FAQ -->
+<section class="section section-alt">
+  <div class="sec-head">
+    <div class="tag">AKSAR POOCHE JAANE WALE SAWAAL</div>
+    <h2>Aapke Sawaal, Humaare Jawab</h2>
+    <p>Koi bhi confusion yahan door karein</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)">PAN card kitne din mein banta hai?<span class="faq-arrow">+</span></div><div class="faq-a">Aam taur par PAN card apply karne ke 7–15 working days mein mil jaata hai. Hum aapko tracking number denge jisse aap khud bhi track kar sakte hain.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)">Kya ghar baithe apply kar sakte hain?<span class="faq-arrow">+</span></div><div class="faq-a">Haan! Aap WhatsApp par documents bhej sakte hain — 9149383541. Hum aapko bata denge kya kya chahiye aur payment online ho sakta hai.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)">Payment kaise karein — UPI ya Cash?<span class="faq-arrow">+</span></div><div class="faq-a">Aap cash, UPI (PhonePe, GPay, Paytm), ya bank transfer — kisi bhi tarike se payment kar sakte hain. Har payment par pakka receipt milega.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)">Aadhaar update mein kitna samay lagta hai?<span class="faq-arrow">+</span></div><div class="faq-a">Aadhaar update same day process hota hai hamare kendra par. UIDAI approval mein 2–3 din lag sakte hain lekin hamara kaam usi din hoga.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)">Kya Saharanpur ke bahar ke log bhi apply kar sakte hain?<span class="faq-arrow">+</span></div><div class="faq-a">Haan, hum Saharanpur district ke sabhi tehsils aur blocks ke log ki application accept karte hain. WhatsApp par contact karein.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)">Kya documents ki photocopy chahiye ya original?<span class="faq-arrow">+</span></div><div class="faq-a">Pehle visit mein original documents laaiye verification ke liye. Photocopy humari taraf se lenge. Kuch services mein sirf WhatsApp par photo bhejna kaafi hai.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFAQ(this)">PM Awas Yojana ke liye kaun apply kar sakta hai?<span class="faq-arrow">+</span></div><div class="faq-a">Jo parivar BPL (gareeb rekha se neeche) hain aur jinke paas pakka ghar nahi hai woh apply kar sakte hain. Aadhar card aur ration card zaroori hai.</div></div>
+  </div>
+</section>
+
+<!-- 17. APPLY FORM -->
+<section class="section" id="apply">
+  <div class="apply-wrap">
+    <div class="sec-head">
+      <div class="tag">ONLINE APPLY KAREIN</div>
+      <h2>Abhi Form Bharo</h2>
+      <p>Form bharo — Saharanpur team 2–3 ghante mein call karegi</p>
     </div>
-    <div class="why-card">
-      <div class="icon">🔒</div>
-      <h3>Secure & Safe</h3>
-      <p>Aapka data 100% safe rahega, koi leak nahi</p>
-    </div>
-    <div class="why-card">
-      <div class="icon">💰</div>
-      <h3>Low Cost</h3>
-      <p>Market mein sabse kam rate mein sabse acha service</p>
-    </div>
-    <div class="why-card">
-      <div class="icon">📞</div>
-      <h3>24/7 Support</h3>
-      <p>Kisi bhi problem ke liye hum hamesha available hain</p>
+    <div class="apply-card">
+      <h2>Application Form</h2>
+      <p class="sub">📍 Saharanpur, UP — Sabhi fields zaroori hain</p>
+      <div class="field-row">
+        <div class="field"><label>Poora Naam *</label><input type="text" id="f-name" placeholder="Aapka poora naam"></div>
+        <div class="field"><label>Mobile Number *</label><input type="tel" id="f-mobile" placeholder="10 digit number" maxlength="10"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Email (optional)</label><input type="email" id="f-email" placeholder="Email address"></div>
+        <div class="field"><label>Aapka Ilaka / Gaon *</label><input type="text" id="f-area" placeholder="Gaon ya Mohalla naam"></div>
+      </div>
+      <div class="field"><label>Service Chunein *</label>
+        <select id="f-service">
+          <option value="">-- Kaunsi service chahiye? --</option>
+          <option>PAN Card</option><option>Aadhaar Card</option><option>Income Certificate</option>
+          <option>Caste Certificate</option><option>Passport</option><option>Voter ID</option>
+          <option>Driving License</option><option>Birth Certificate</option><option>Death Certificate</option>
+          <option>Marriage Certificate</option><option>PM Kisan</option><option>Bill Payment</option>
+          <option>Railway Ticket</option><option>Insurance</option><option>Bank Account</option>
+          <option>Scholarship</option><option>PM Awas Yojana</option><option>Ayushman Bharat</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label>Koi Sawaal ya Vishesh Zaroorat</label><textarea id="f-msg" placeholder="Kuch bhi likhein — hum samjhenge..."></textarea></div>
+      <button class="submit-btn" onclick="submitForm()">🚀 Submit Application</button>
+      <div class="success-box" id="success-box">✅ Aapki application submit ho gayi! Saharanpur team 2–3 ghante mein aapko call karegi. WhatsApp par bhi message aa sakta hai — 9149383541</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- APPLY FORM -->
-<div class="section" id="apply">
-  <div class="apply-box">
-    <h2>Online Apply Karo</h2>
-    <p class="sub">Form bhar ke hamare agent se connect ho</p>
-
-    <div class="field-wrap">
-      <div class="field-label">Poora Naam *</div>
-      <input type="text" id="f-name" placeholder="Apna poora naam likhein">
-    </div>
-    <div class="field-wrap">
-      <div class="field-label">Mobile Number *</div>
-      <input type="tel" id="f-mobile" placeholder="10 digit mobile number" maxlength="10">
-    </div>
-    <div class="field-wrap">
-      <div class="field-label">Service Chunein *</div>
-      <select id="f-service">
-        <option value="">-- Service Select Karein --</option>
-        <option>PAN Card</option>
-        <option>Aadhaar Card</option>
-        <option>Income Certificate</option>
-        <option>Caste Certificate</option>
-        <option>Passport</option>
-        <option>Voter ID</option>
-        <option>PM Kisan</option>
-        <option>Bill Payment</option>
-      </select>
-    </div>
-
-    <button class="submit-btn" onclick="submitForm()">Submit Application</button>
-
-    <div style="text-align:center;">
-      <a href="https://wa.me/919149383541" class="whatsapp-btn">
-        💬 WhatsApp Par Baat Karo
-      </a>
-    </div>
-
-    <div class="success-msg" id="success-msg">
-      ✅ Application submit ho gayi! Hum 2-3 ghante mein aapko call karenge.
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div class="section">
-  <div class="section-header">
-    <h2>Humse Sampark Karein</h2>
-    <p>Kisi bhi seva ke liye hamare saath judein</p>
+<!-- 18. CONTACT -->
+<section class="section section-alt">
+  <div class="sec-head">
+    <div class="tag">SAMPARK KAREIN</div>
+    <h2>Humse Judein</h2>
+    <p>Kisi bhi zaroorat ke liye hum haazir hain — Saharanpur</p>
   </div>
   <div class="contact-grid">
-    <div class="contact-card">
-      <div class="contact-icon">📞</div>
-      <div class="contact-info">
-        <p>Phone / WhatsApp</p>
-        <p>9149383541</p>
-      </div>
+    <div class="contact-card"><div class="contact-icon ci-blue">📞</div><div><div class="contact-label">Phone / Call</div><div class="contact-value">9149383541</div></div></div>
+    <div class="contact-card"><div class="contact-icon ci-green">💬</div><div><div class="contact-label">WhatsApp</div><div class="contact-value">9149383541</div></div></div>
+    <div class="contact-card"><div class="contact-icon ci-amber">📧</div><div><div class="contact-label">Email</div><div class="contact-value">rihangour258036@gmail.com</div></div></div>
+    <div class="contact-card"><div class="contact-icon ci-purple">📍</div><div><div class="contact-label">Address</div><div class="contact-value">Saharanpur, UP — 247001</div></div></div>
+  </div>
+</section>
+
+<!-- 19. MAP -->
+<section class="section">
+  <div class="sec-head">
+    <div class="tag">HAMAARI LOCATION</div>
+    <h2>Kendra Ka Pata</h2>
+    <p>Saharanpur mein hum yahaan hain — aasaani se aayein</p>
+  </div>
+  <div class="map-container">
+    <div class="map-header">
+      <h3>📍 NextGen Digital Seva — Saharanpur, UP 247001</h3>
+      <a href="https://maps.google.com/?q=Saharanpur,Uttar+Pradesh" target="_blank" class="map-link">Google Maps Kholein →</a>
     </div>
-    <div class="contact-card">
-      <div class="contact-icon">📧</div>
-      <div class="contact-info">
-        <p>Email Address</p>
-        <p>rihangour258036@gmail.com</p>
-      </div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">📍</div>
-      <div class="contact-info">
-        <p>Location</p>
-        <p>Agra, Uttar Pradesh</p>
-      </div>
+    <div class="map-body">
+      <div style="font-size:60px;">🗺️</div>
+      <p><strong>Saharanpur, Uttar Pradesh — 247001</strong></p>
+      <p>Near Main Market, Saharanpur City</p>
+      <a href="https://maps.google.com/?q=Saharanpur,Uttar+Pradesh" target="_blank" class="map-link" style="margin-top:8px;">Get Directions →</a>
     </div>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
+<!-- 20. SOCIAL MEDIA -->
+<section class="section section-alt">
+  <div class="sec-head">
+    <div class="tag">SOCIAL MEDIA</div>
+    <h2>Humse Jude Rahein</h2>
+    <p>Updates aur latest schemes ki jaankari ke liye follow karein</p>
+  </div>
+  <div class="social-grid">
+    <a href="https://wa.me/919149383541" class="social-card"><div class="s-icon">💬</div><h3>WhatsApp</h3><p>Direct message karein</p></a>
+    <a href="#" class="social-card"><div class="s-icon">📘</div><h3>Facebook</h3><p>Page like karein</p></a>
+    <a href="#" class="social-card"><div class="s-icon">📸</div><h3>Instagram</h3><p>Follow karein</p></a>
+    <a href="#" class="social-card"><div class="s-icon">▶️</div><h3>YouTube</h3><p>Tips aur guides dekhein</p></a>
+  </div>
+</section>
+
+<!-- 21. NEWSLETTER -->
+<section class="section">
+  <div class="nl-box">
+    <h2>📩 Latest Updates Paate Rahein</h2>
+    <p>Naye schemes, forms aur government notifications hamare se pehle paayein — bilkul free</p>
+    <div class="nl-form">
+      <input type="tel" id="nl-mobile" placeholder="Apna WhatsApp number dalein" maxlength="10">
+      <button onclick="subscribeNL()">Subscribe Karein</button>
+    </div>
+    <div id="nl-success" style="display:none;margin-top:14px;color:#86efac;font-size:13px;font-weight:600;">✅ Subscribed! Ab aapko Saharanpur ke updates milenge.</div>
+  </div>
+</section>
+
+<!-- 22. EMERGENCY -->
+<section class="emergency-section">
+  <h2>⚡ Urgent Kaam Hai?</h2>
+  <p>Passport, Court Document, ya koi bhi emergency service ke liye abhi hisse contact karein — hum usi din process karenge</p>
+  <div class="emergency-btns">
+    <a href="tel:9149383541" class="e-btn e-btn-white">📞 Abhi Call Karein</a>
+    <a href="https://wa.me/919149383541?text=Urgent%20service%20chahiye%20Saharanpur" class="e-btn e-btn-wa">💬 Urgent WhatsApp</a>
+  </div>
+</section>
+
+<!-- 23. FOOTER -->
 <footer>
-  <p>© 2025 NextGen Digital Seva — Agra, Uttar Pradesh</p>
-  <p>CSC Registered | Government Authorized Digital Seva Kendra</p>
-  <p style="margin-top:10px;">📞 9149383541 | 📧 rihangour258036@gmail.com</p>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>🏛️ NextGen Digital Seva</h3>
+      <p>Saharanpur ka sabse trusted CSC kendra. Govt. authorized, fast processing, aur 5+ saal ka experience aapki seva mein. Har nagarik ka kaam hamaari zimmedari hai.</p>
+      <a href="https://wa.me/919149383541" style="display:inline-block;background:#25d366;color:white;padding:8px 18px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;margin-top:4px;">💬 WhatsApp: 9149383541</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#services" style="color:#94a3b8;text-decoration:none;">Hamaari Services</a></li>
+        <li><a href="#apply" style="color:#94a3b8;text-decoration:none;">Online Apply</a></li>
+        <li><a href="#" style="color:#94a3b8;text-decoration:none;">Govt. Schemes</a></li>
+        <li><a href="#" style="color:#94a3b8;text-decoration:none;">About Us</a></li>
+        <li><a href="#" style="color:#94a3b8;text-decoration:none;">Rate Card</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul>
+        <li>📞 9149383541</li>
+        <li>💬 WhatsApp Same</li>
+        <li>📧 rihangour258036@gmail.com</li>
+        <li>📍 Saharanpur, UP 247001</li>
+        <li>🕐 Mon–Sat: 9am–7pm</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 NextGen Digital Seva — Saharanpur, Uttar Pradesh | CSC Registered & Govt. Authorized</p>
+    <p>Made with ❤️ for Saharanpur</p>
+  </div>
 </footer>
 
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/919149383541" class="wa-float" title="WhatsApp Karein">💬</a>
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 <script>
-function selectService(name) {
-  var sel = document.getElementById('f-service');
-  for (var i = 0; i < sel.options.length; i++) {
-    if (sel.options[i].text === name) {
-      sel.selectedIndex = i;
-      break;
-    }
-  }
-  document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+function gotoApply(){
+  document.getElementById('apply').scrollIntoView({behavior:'smooth'});
 }
 
-function submitForm() {
-  var name = document.getElementById('f-name').value.trim();
-  var mobile = document.getElementById('f-mobile').value.trim();
-  var service = document.getElementById('f-service').value;
-
-  if (!name) {
-    alert('❌ Kripya apna naam bhar dein');
-    return;
+function selectService(name){
+  var sel=document.getElementById('f-service');
+  for(var i=0;i<sel.options.length;i++){
+    if(sel.options[i].text===name){sel.selectedIndex=i;break;}
   }
-  if (mobile.length !== 10 || isNaN(mobile)) {
-    alert('❌ Kripya sahi 10 digit mobile number daalein');
-    return;
-  }
-  if (!service) {
-    alert('❌ Kripya ek service chunein');
-    return;
-  }
-
-  document.getElementById('success-msg').style.display = 'block';
-  document.getElementById('f-name').value = '';
-  document.getElementById('f-mobile').value = '';
-  document.getElementById('f-service').selectedIndex = 0;
+  document.getElementById('apply').scrollIntoView({behavior:'smooth'});
 }
+
+function submitForm(){
+  var name=document.getElementById('f-name').value.trim();
+  var mobile=document.getElementById('f-mobile').value.trim();
+  var area=document.getElementById('f-area').value.trim();
+  var service=document.getElementById('f-service').value;
+  if(!name){alert('Kripya apna poora naam bharen');return;}
+  if(mobile.length!==10||isNaN(mobile)){alert('Kripya sahi 10 digit mobile number daalein');return;}
+  if(!area){alert('Kripya apna gaon ya mohalla naam bharen');return;}
+  if(!service){alert('Kripya ek service chunein');return;}
+  var box=document.getElementById('success-box');
+  box.style.display='block';
+  box.scrollIntoView({behavior:'smooth'});
+  document.getElementById('f-name').value='';
+  document.getElementById('f-mobile').value='';
+  document.getElementById('f-email').value='';
+  document.getElementById('f-area').value='';
+  document.getElementById('f-service').selectedIndex=0;
+  document.getElementById('f-msg').value='';
+}
+
+function toggleFAQ(el){
+  var item=el.parentElement;
+  document.querySelectorAll('.faq-item').forEach(function(i){if(i!==item)i.classList.remove('open');});
+  item.classList.toggle('open');
+}
+
+function subscribeNL(){
+  var num=document.getElementById('nl-mobile').value.trim();
+  if(num.length!==10||isNaN(num)){alert('Sahi 10 digit WhatsApp number dalein');return;}
+  document.getElementById('nl-success').style.display='block';
+  document.getElementById('nl-mobile').value='';
+}
+
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('scrollTopBtn');
+  if(window.scrollY>400)btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
 </script>
-
 </body>
 </html>
