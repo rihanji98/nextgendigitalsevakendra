@@ -2,98 +2,112 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>NextGen Digital Seva Kendra</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGen Digital Seva Kendra</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
 }
 
-header {
-    background: linear-gradient(135deg, #0d6efd, #00c6ff);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
+/* Header */
+.header {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
 }
 
-header h1 {
-    margin: 0;
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 10px 0;
 }
 
 .btn {
-    background: white;
-    color: #0d6efd;
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    margin-top: 15px;
-    font-weight: bold;
+  display: inline-block;
+  background: white;
+  color: #007bff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-section {
-    padding: 40px 20px;
-    text-align: center;
+/* Services */
+.section {
+  padding: 20px;
 }
 
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+.section h2 {
+  text-align: center;
 }
 
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s;
-    cursor: pointer;
+.service {
+  background: white;
+  margin: 15px 0;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.service:hover {
+  transform: scale(1.03);
+  background: #007bff;
+  color: white;
 }
 
-footer {
-    background: #0d6efd;
-    color: white;
-    text-align: center;
-    padding: 20px;
+/* Footer */
+.footer {
+  background: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 </style>
+
 </head>
 
 <body>
 
-<header>
-    <h1>NextGen Digital Seva Kendra</h1>
-    <p>Your One Stop Digital Service Center</p>
-    <button class="btn">Apply Now</button>
-</header>
+<div class="header">
+  <h1>NextGen Digital Seva Kendra</h1>
+  <p>Your One Stop Digital Service Center</p>
+  <a href="#services" class="btn">Apply Now</a>
+</div>
 
-<section>
-    <h2>Our Services</h2>
+<div class="section" id="services">
+  <h2>Our Services</h2>
 
-    <div class="services">
-        <div class="card">PAN Card</div>
-        <div class="card">Aadhaar Card</div>
-        <div class="card">Income Certificate</div>
-        <div class="card">Caste Certificate</div>
-        <div class="card">Passport</div>
-        <div class="card">Bill Payment</div>
-        <div class="card">PM Kisan</div>
-    </div>
-</section>
+  <div class="service" onclick="openService('PAN Card')">PAN Card</div>
+  <div class="service" onclick="openService('Aadhaar Card')">Aadhaar Card</div>
+  <div class="service" onclick="openService('Income Certificate')">Income Certificate</div>
+  <div class="service" onclick="openService('Caste Certificate')">Caste Certificate</div>
+  <div class="service" onclick="openService('Passport')">Passport</div>
+  <div class="service" onclick="openService('Bill Payment')">Bill Payment</div>
+  <div class="service" onclick="openService('PM Kisan')">PM Kisan</div>
 
-<footer>
-    <p>📞 9149383541</p>
-    <p>📧 rihangour258036@gmail.com</p>
-</footer>
+</div>
+
+<div class="footer">
+  <p>📞 9149383541</p>
+  <p>📧 rihangour258036@gmail.com</p>
+</div>
+
+<script>
+function openService(serviceName) {
+  alert(serviceName + " service coming soon!");
+}
+</script>
 
 </body>
 </html>
