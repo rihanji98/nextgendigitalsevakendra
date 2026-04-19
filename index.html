@@ -1,191 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextGen Digital Seva</title>
-
+<title>NextGen Digital Seva - Agra</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-
-body{background:#f4f7fb;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;background:#f1f5f9;color:#1e293b;}
 
 /* NAVBAR */
-nav{
-  background:#0f172a;
-  color:white;
-  padding:15px;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-nav h2{text-align:center;}
+.nav{background:white;border-bottom:1px solid #e2e8f0;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-icon{width:36px;height:36px;background:#1a56db;border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.nav-icon span{color:white;font-size:18px;}
+.nav-title{font-size:16px;font-weight:600;color:#1e293b;}
+.nav-sub{font-size:11px;color:#64748b;}
+.badge-online{background:#d1fae5;color:#065f46;font-size:11px;padding:4px 12px;border-radius:20px;font-weight:600;}
 
 /* HERO */
-.hero{
-  height:90vh;
-  background:linear-gradient(135deg,#007bff,#00c6ff);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
-.hero h1{font-size:35px;}
-.hero p{margin:10px 0;}
-.btn{
-  margin-top:15px;
-  padding:12px 25px;
-  background:white;
-  color:#007bff;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-}
+.hero{background:linear-gradient(135deg,#1a56db 0%,#1e40af 100%);padding:56px 24px;text-align:center;color:white;}
+.hero h1{font-size:28px;font-weight:700;margin-bottom:10px;}
+.hero p{font-size:15px;opacity:0.85;margin-bottom:28px;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:white;color:#1a56db;padding:11px 26px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;}
+.btn-white:hover{background:#eff6ff;}
+.btn-outline{background:transparent;color:white;padding:11px 26px;border-radius:8px;font-size:14px;font-weight:600;border:2px solid rgba(255,255,255,0.6);cursor:pointer;}
+.btn-outline:hover{background:rgba(255,255,255,0.1);}
+.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:36px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-size:26px;font-weight:700;}
+.stat-label{font-size:12px;opacity:0.75;margin-top:2px;}
 
-/* SECTION */
-.section{
-  padding:60px 20px;
-  text-align:center;
-}
-.section h2{margin-bottom:30px;}
+/* SECTIONS */
+.section{padding:48px 24px;}
+.section-header{margin-bottom:28px;}
+.section-header h2{font-size:20px;font-weight:700;margin-bottom:6px;}
+.section-header p{font-size:14px;color:#64748b;}
 
-/* SERVICES */
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-.card{
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  transition:0.3s;
-  cursor:pointer;
-}
-.card:hover{
-  transform:translateY(-5px);
-  background:#007bff;
-  color:white;
-}
+/* SERVICE CARDS */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+.scard{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:18px;cursor:pointer;transition:all 0.2s;}
+.scard:hover{border-color:#1a56db;transform:translateY(-2px);box-shadow:0 4px 12px rgba(26,86,219,0.1);}
+.scard-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:20px;}
+.scard-icon.blue{background:#eff6ff;}
+.scard-icon.green{background:#f0fdf4;}
+.scard-icon.amber{background:#fffbeb;}
+.scard-icon.purple{background:#faf5ff;}
+.scard h3{font-size:13px;font-weight:600;margin-bottom:4px;color:#1e293b;}
+.scard p{font-size:11px;color:#64748b;}
 
-/* ABOUT */
-.about{
-  background:#e2e8f0;
-}
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
+.why-card{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:18px;}
+.why-card .icon{font-size:24px;margin-bottom:10px;}
+.why-card h3{font-size:14px;font-weight:600;margin-bottom:6px;color:#1e293b;}
+.why-card p{font-size:12px;color:#64748b;line-height:1.6;}
 
 /* APPLY FORM */
-.form{
-  max-width:400px;
-  margin:auto;
-}
-input,select{
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-}
-button{
-  width:100%;
-  padding:12px;
-  background:#007bff;
-  color:white;
-  border:none;
-}
+.apply-box{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:28px;max-width:500px;margin:0 auto;}
+.apply-box h2{font-size:18px;font-weight:700;margin-bottom:4px;}
+.apply-box .sub{font-size:13px;color:#64748b;margin-bottom:22px;}
+.field-wrap{margin-bottom:16px;}
+.field-label{font-size:12px;color:#64748b;margin-bottom:6px;font-weight:500;}
+.field-wrap input,.field-wrap select{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #e2e8f0;background:#f8fafc;color:#1e293b;font-size:14px;outline:none;}
+.field-wrap input:focus,.field-wrap select:focus{border-color:#1a56db;background:white;}
+.submit-btn{width:100%;padding:13px;background:#1a56db;color:white;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;margin-top:6px;}
+.submit-btn:hover{background:#1e40af;}
+.success-msg{display:none;background:#d1fae5;color:#065f46;padding:14px;border-radius:8px;font-size:14px;text-align:center;margin-top:14px;font-weight:500;}
+
+/* WHATSAPP */
+.whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:white;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;}
+.whatsapp-btn:hover{background:#1ebe5d;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.contact-card{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:18px;display:flex;align-items:center;gap:14px;}
+.contact-icon{width:44px;height:44px;background:#eff6ff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.contact-info p:first-child{font-size:11px;color:#64748b;margin-bottom:3px;}
+.contact-info p:last-child{font-size:14px;font-weight:600;color:#1a56db;}
 
 /* FOOTER */
-footer{
-  background:#0f172a;
-  color:white;
-  padding:30px;
-  text-align:center;
+footer{background:#0f172a;color:white;padding:28px 24px;text-align:center;}
+footer p{font-size:13px;opacity:0.75;}
+footer p+p{margin-top:6px;}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero h1{font-size:22px;}
+  .hero-stats{gap:24px;}
+  .stat-num{font-size:20px;}
 }
 </style>
 </head>
-
 <body>
 
-<nav>
-  <h2>NextGen Digital Seva</h2>
-</nav>
+<!-- NAVBAR -->
+<div class="nav">
+  <div class="nav-brand">
+    <div class="nav-icon"><span>🏛️</span></div>
+    <div>
+      <div class="nav-title">NextGen Digital Seva</div>
+      <div class="nav-sub">Agra, Uttar Pradesh</div>
+    </div>
+  </div>
+  <span class="badge-online">● Online</span>
+</div>
 
 <!-- HERO -->
 <div class="hero">
   <h1>Digital Seva Kendra</h1>
-  <p>Your One Stop Solution</p>
-  <a href="#services" class="btn">Explore Services</a>
+  <p>Sarkaari documents aur schemes ke liye aapka bharosemand saathi</p>
+  <div class="hero-btns">
+    <button class="btn-white" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Apply Karo</button>
+    <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services Dekho</button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">5000+</div>
+      <div class="stat-label">Applications Done</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Services Available</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.8 ★</div>
+      <div class="stat-label">Customer Rating</div>
+    </div>
+  </div>
 </div>
 
 <!-- SERVICES -->
 <div class="section" id="services">
-  <h2>Our Services</h2>
-
-  <div class="services">
-    <div class="card" onclick="openService('PAN')">PAN Card</div>
-    <div class="card" onclick="openService('Aadhaar')">Aadhaar Card</div>
-    <div class="card" onclick="openService('Income')">Income Certificate</div>
-    <div class="card" onclick="openService('Caste')">Caste Certificate</div>
-    <div class="card" onclick="openService('Passport')">Passport</div>
-    <div class="card" onclick="openService('Bill')">Bill Payment</div>
-    <div class="card" onclick="openService('PM Kisan')">PM Kisan</div>
-    <div class="card" onclick="openService('Voter ID')">Voter ID</div>
+  <div class="section-header">
+    <h2>Hamaari Services</h2>
+    <p>Sabhi government documents ek jagah par</p>
+  </div>
+  <div class="services-grid">
+    <div class="scard" onclick="selectService('PAN Card')">
+      <div class="scard-icon blue">🪪</div>
+      <h3>PAN Card</h3>
+      <p>New / Correction</p>
+    </div>
+    <div class="scard" onclick="selectService('Aadhaar Card')">
+      <div class="scard-icon green">🆔</div>
+      <h3>Aadhaar Card</h3>
+      <p>Update / Correction</p>
+    </div>
+    <div class="scard" onclick="selectService('Income Certificate')">
+      <div class="scard-icon amber">📄</div>
+      <h3>Income Certificate</h3>
+      <p>Aay Praman Patra</p>
+    </div>
+    <div class="scard" onclick="selectService('Caste Certificate')">
+      <div class="scard-icon purple">📋</div>
+      <h3>Caste Certificate</h3>
+      <p>Jaati Praman Patra</p>
+    </div>
+    <div class="scard" onclick="selectService('Passport')">
+      <div class="scard-icon blue">🛂</div>
+      <h3>Passport</h3>
+      <p>New / Renewal</p>
+    </div>
+    <div class="scard" onclick="selectService('Voter ID')">
+      <div class="scard-icon green">🗳️</div>
+      <h3>Voter ID</h3>
+      <p>New / Correction</p>
+    </div>
+    <div class="scard" onclick="selectService('PM Kisan')">
+      <div class="scard-icon amber">🌾</div>
+      <h3>PM Kisan</h3>
+      <p>Registration / Status</p>
+    </div>
+    <div class="scard" onclick="selectService('Bill Payment')">
+      <div class="scard-icon purple">💡</div>
+      <h3>Bill Payment</h3>
+      <p>Bijli / Paani / Gas</p>
+    </div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<div class="section about">
-  <h2>About Us</h2>
-  <p>We provide fast and secure digital services for all government schemes and documents.</p>
-</div>
-
-<!-- APPLY -->
-<div class="section">
-  <h2>Apply Online</h2>
-
-  <div class="form">
-    <input type="text" placeholder="Full Name">
-    <input type="text" placeholder="Mobile Number">
-
-    <select>
-      <option>Select Service</option>
-      <option>PAN Card</option>
-      <option>Aadhaar</option>
-      <option>Income Certificate</option>
-    </select>
-
-    <button onclick="submitForm()">Submit</button>
+<!-- WHY US -->
+<div class="section" style="background:white;">
+  <div class="section-header">
+    <h2>Humein Kyun Chunein?</h2>
+    <p>Hamaari service ki khasiyat</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="icon">⚡</div>
+      <h3>Fast Service</h3>
+      <p>Same day processing available hai sabhi documents ke liye</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">🔒</div>
+      <h3>Secure & Safe</h3>
+      <p>Aapka data 100% safe rahega, koi leak nahi</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">💰</div>
+      <h3>Low Cost</h3>
+      <p>Market mein sabse kam rate mein sabse acha service</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">📞</div>
+      <h3>24/7 Support</h3>
+      <p>Kisi bhi problem ke liye hum hamesha available hain</p>
+    </div>
   </div>
 </div>
 
-<!-- EXTRA LONG CONTENT (scroll ke liye) -->
+<!-- APPLY FORM -->
+<div class="section" id="apply">
+  <div class="apply-box">
+    <h2>Online Apply Karo</h2>
+    <p class="sub">Form bhar ke hamare agent se connect ho</p>
+
+    <div class="field-wrap">
+      <div class="field-label">Poora Naam *</div>
+      <input type="text" id="f-name" placeholder="Apna poora naam likhein">
+    </div>
+    <div class="field-wrap">
+      <div class="field-label">Mobile Number *</div>
+      <input type="tel" id="f-mobile" placeholder="10 digit mobile number" maxlength="10">
+    </div>
+    <div class="field-wrap">
+      <div class="field-label">Service Chunein *</div>
+      <select id="f-service">
+        <option value="">-- Service Select Karein --</option>
+        <option>PAN Card</option>
+        <option>Aadhaar Card</option>
+        <option>Income Certificate</option>
+        <option>Caste Certificate</option>
+        <option>Passport</option>
+        <option>Voter ID</option>
+        <option>PM Kisan</option>
+        <option>Bill Payment</option>
+      </select>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()">Submit Application</button>
+
+    <div style="text-align:center;">
+      <a href="https://wa.me/919149383541" class="whatsapp-btn">
+        💬 WhatsApp Par Baat Karo
+      </a>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      ✅ Application submit ho gayi! Hum 2-3 ghante mein aapko call karenge.
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
 <div class="section">
-  <h2>Why Choose Us</h2>
-  <p>✔ Fast Service ✔ Secure ✔ Trusted ✔ Low Cost</p>
-  <br><br>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. (repeat content for long scroll)</p>
-  <br><br>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  <br><br>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  <br><br>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <div class="section-header">
+    <h2>Humse Sampark Karein</h2>
+    <p>Kisi bhi seva ke liye hamare saath judein</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">📞</div>
+      <div class="contact-info">
+        <p>Phone / WhatsApp</p>
+        <p>9149383541</p>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📧</div>
+      <div class="contact-info">
+        <p>Email Address</p>
+        <p>rihangour258036@gmail.com</p>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <div class="contact-info">
+        <p>Location</p>
+        <p>Agra, Uttar Pradesh</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <p>📞 9149383541</p>
-  <p>📧 rihangour258036@gmail.com</p>
+  <p>© 2025 NextGen Digital Seva — Agra, Uttar Pradesh</p>
+  <p>CSC Registered | Government Authorized Digital Seva Kendra</p>
+  <p style="margin-top:10px;">📞 9149383541 | 📧 rihangour258036@gmail.com</p>
 </footer>
 
 <script>
-function openService(name){
-  alert(name + " service coming soon");
+function selectService(name) {
+  var sel = document.getElementById('f-service');
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].text === name) {
+      sel.selectedIndex = i;
+      break;
+    }
+  }
+  document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
 }
 
-function submitForm(){
-  alert("Application Submitted!");
+function submitForm() {
+  var name = document.getElementById('f-name').value.trim();
+  var mobile = document.getElementById('f-mobile').value.trim();
+  var service = document.getElementById('f-service').value;
+
+  if (!name) {
+    alert('❌ Kripya apna naam bhar dein');
+    return;
+  }
+  if (mobile.length !== 10 || isNaN(mobile)) {
+    alert('❌ Kripya sahi 10 digit mobile number daalein');
+    return;
+  }
+  if (!service) {
+    alert('❌ Kripya ek service chunein');
+    return;
+  }
+
+  document.getElementById('success-msg').style.display = 'block';
+  document.getElementById('f-name').value = '';
+  document.getElementById('f-mobile').value = '';
+  document.getElementById('f-service').selectedIndex = 0;
 }
 </script>
 
